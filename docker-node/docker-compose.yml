@@ -4,7 +4,7 @@ services:
     container_name: siteproxy-node
     restart: unless-stopped
     ports:
-      - 127.0.0.1:5006:5006
+      - 0.0.0.0:5006:5006
     volumes:
       - ../:/home/node/siteproxy/
     working_dir: /home/node/siteproxy/

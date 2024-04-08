@@ -1,1 +1,1 @@
-{"type": "module"}
+{"type":"module","dependencies":{"global-agent":"^3.0.0"}}

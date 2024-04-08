@@ -1,0 +1,12 @@
+services:
+  siteproxy:
+    image: node:18
+    container_name: siteproxy-node
+    restart: unless-stopped
+    ports:
+      - 5006:5006
+    volumes:
+      - ../:/home/node/siteproxy/
+    working_dir: /home/node/siteproxy/
+    entrypoint: ["node","/home/node/siteproxy/bundle.js"]
+

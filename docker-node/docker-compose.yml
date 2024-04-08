@@ -1,11 +1,16 @@
+version: '3.8'
+
 services:
   siteproxy:
     image: node:18
     container_name: siteproxy-node
     restart: unless-stopped
     ports:
-      - 0.0.0.0:5006:5006
+      - 5006:5006
     volumes:
-      - ../:/home/node/siteproxy/
+      - ./../:/home/node/siteproxy/
     working_dir: /home/node/siteproxy/
-    entrypoint: ["node","/home/node/siteproxy/bundle.js"]
+    entrypoint: ["/bin/sh","/home/node/siteproxy/start.sh"]
+    environment:
+      - HTTP_PROXY=http://172.31.47.241:7890
+      - HTTPS_PROXY=http://172.31.47.241:7890
